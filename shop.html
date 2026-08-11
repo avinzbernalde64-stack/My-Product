@@ -18,15 +18,15 @@
 
     <!-- READ ONLY TEXT SCRIPT -->
     <style>
-        /* Prevents users from highlighting and copying text on the whole website */
-        body {
+        /* Prevents users from highlighting and copying text on EVERY element */
+        * {
             -webkit-user-select: none; /* Safari */
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Standard syntax */
         }
 
-        /* Allows text selection ONLY inside input boxes (if any exist) */
+        /* Allows text selection ONLY inside input boxes (like search or email) */
         input, textarea {
             -webkit-user-select: text;
             -moz-user-select: text;
