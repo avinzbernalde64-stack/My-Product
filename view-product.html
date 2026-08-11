@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINJ - Product</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #888888;
+            --btn-bg: #ffffff;
+            --btn-text: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .cart-icon {
+            cursor: pointer;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        .media-section {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        #productVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info-section {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .product-subtitle {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+        }
+
+        .product-description h3 {
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .product-description ul {
+            list-style: none;
+        }
+
+        .product-description ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .product-description ul li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        .size-selector {
+            margin-bottom: 30px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .size-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-btn:hover,
+        .size-btn.active {
+            border-color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 18px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary.added {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">VINJ</a>
+        <a href="cart.html" class="cart-icon">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+
+    <main class="product-container">
+        <div class="media-section">
+            <video id="productVideo" controls autoplay muted loop playsinline>
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="info-section">
+            <h2 id="productTitle" class="product-title">Loading...</h2>
+            <p class="product-subtitle">WEAR YOUR IDENTITY</p>
+            <p id="productPrice" class="product-price">$0.00 USD</p>
+
+            <div class="product-description">
+                <h3>Product Details</h3>
+                <ul id="productDetails"></ul>
+            </div>
+
+            <div class="size-selector">
+                <label>Select Size</label>
+                <div class="size-options">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+            </div>
+
+            <button id="addToCartBtn" class="btn-primary">Add to Cart</button>
+        </div>
+    </main>
+
+    <!-- Include shared script -->
+    <script src="script.js"></script>
+    <script>
+        // 1. Database of your products (ADDED IMAGE PATHS)
+        const products = {
+            'signature-tee': { title: 'VINJ Signature Tee', price: '₱1,499', video: 'video/signature-tee.mp4', image: 'images/shirt.jpg', details: ['Premium heavyweight cotton', 'Regular fit', 'Minimalist VINJ logo print'] },
+            'graphic-tee': { title: 'VINJ Graphic Tee', price: '₱1,799', video: 'video/graphic-tee.mp4', image: 'images/shirt.jpg', details: ['Heavyweight cotton construction', 'Oversized streetwear fit', 'Premium screen printed graphic'] },
+            'hoodie': { title: 'VINJ Signature Hoodie', price: '₱3,499', video: 'video/hoodie.mp4', image: 'images/hoodie.jpg', details: ['Heavyweight premium cotton construction', 'Black colorway with matching drawstrings', 'Embroidered VINJ chest logo', 'Front kangaroo pocket with lower label'] },
+            'essential-tee': { title: 'VINJ Essential Tee', price: '₱1,499', video: 'video/essential-tee.mp4', image: 'images/product1.jpg', details: ['Soft-touch breathable fabric', 'Regular fit', 'Minimalist aesthetic'] },
+            'oversized-tee': { title: 'VINJ Oversized Tee', price: '₱1,699', video: 'video/oversized-tee.mp4', image: 'images/product2.jpg', details: ['Drop shoulder design', 'Thick heavyweight cotton', 'Modern streetwear silhouette'] },
+            'cap': { title: 'VINJ Cap', price: '₱1,199', video: 'video/cap.mp4', image: 'images/cap.jpg', details: ['Premium twill fabric', 'Adjustable strap', 'Embroidered VINJ logo'] },
+            'varsity-jacket': { title: 'VINJ Varsity Jacket', price: '₱2,800', video: 'video/varsity-jacket.mp4', image: 'images/jacket.jpg', details: ['Premium wool blend body', 'Snap button closure', 'Embroidered VINJ chest logo', 'Ribbed cuffs and hem'] },
+            'cargo-pants': { title: 'VINJ Cargo Pants', price: '₱2,000', video: 'video/cargo-pants.mp4', image: 'images/product3.jpg', details: ['Heavyweight cotton twill', 'Multiple utility pockets', 'Relaxed streetwear fit', 'Reinforced stitching'] },
+            'street-shorts': { title: 'VINJ Street Shorts', price: '₱1,499', video: 'video/street-shorts.mp4', image: 'images/product4.jpg', details: ['Lightweight breathable fabric', 'Elastic waistband with drawstring', 'Modern streetwear length', 'Side pockets'] }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        const product = products[productId];
+
+        if (product) {
+            document.getElementById('productTitle').innerText = product.title;
+            document.getElementById('productPrice').innerText = product.price;
+            document.getElementById('videoSource').src = product.video;
+
+            const detailsList = document.getElementById('productDetails');
+            detailsList.innerHTML = '';
+            product.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.innerText = detail;
+                detailsList.appendChild(li);
+            });
+
+            const video = document.getElementById('productVideo');
+            video.load();
+            video.play().catch(error => console.log("Autoplay prevented."));
+        } else {
+            document.getElementById('productTitle').innerText = "Product Not Found";
+        }
+
+        // Handle Size Selection
+        const sizeButtons = document.querySelectorAll('.size-btn');
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+
+        // Add to Cart Logic
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        addToCartBtn.addEventListener('click', () => {
+            if (!product) return;
+
+            const activeSizeBtn = document.querySelector('.size-btn.active');
+            const selectedSize = activeSizeBtn ? activeSizeBtn.innerText : 'M';
+
+            const cartItem = {
+                id: productId,
+                title: product.title,
+                price: product.price,
+                image: product.image, // <--- ADDED IMAGE PROPERTY HERE
+                size: selectedSize,
+                quantity: 1
+            };
+
+            let cart = getCart();
+            const existingItemIndex = cart.findIndex(item => item.id === cartItem.id && item.size === cartItem.size);
+
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push(cartItem);
+            }
+
+            saveCart(cart);
+
+            addToCartBtn.innerText = "Added to Cart!";
+            addToCartBtn.classList.add('added');
+
+            setTimeout(() => {
+                addToCartBtn.innerText = "Add to Cart";
+                addToCartBtn.classList.remove('added');
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>

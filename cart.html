@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINJ - Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #111;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links li a:hover {
+            color: #000;
+        }
+
+        .cart-icon {
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .cart-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-items {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .item-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity-display {
+            width: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 0.85rem;
+            padding: 0;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .remove-btn:hover {
+            color: #ff0000;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            align-self: center;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .cart-summary {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            height: fit-content;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .summary-row.total {
+            font-size: 1.4rem;
+            font-weight: 800;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .btn-checkout {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-checkout:hover {
+            background-color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cart-container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">VINJ</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="cart-icon">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+
+    <main class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <div class="cart-layout">
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal</span><span id="subtotalAmount">₱0</span></div>
+                <div class="summary-row"><span>Shipping</span><span>Calculated at checkout</span></div>
+                <div class="summary-row total"><span>Total</span><span id="totalAmount">₱0</span></div>
+                <button class="btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include shared script -->
+    <script src="script.js"></script>
+    <script>
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cartItemsContainer');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="empty-cart"><h2>Your cart is empty.</h2><p>Add some products to see them here!</p></div>';
+                document.getElementById('subtotalAmount').innerText = '₱0';
+                document.getElementById('totalAmount').innerText = '₱0';
+                return;
+            }
+
+            let htmlContent = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const priceNumber = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+                subtotal += priceNumber * item.quantity;
+
+                htmlContent += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}" class="item-image">
+                        <div class="item-details">
+                            <h3>${item.title}</h3>
+                            <p>Size: ${item.size}</p>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                                <span class="quantity-display">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+                            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                        </div>
+                        <div class="item-price">₱${(priceNumber * item.quantity).toLocaleString()}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = htmlContent;
+            document.getElementById('subtotalAmount').innerText = '₱' + subtotal.toLocaleString();
+            document.getElementById('totalAmount').innerText = '₱' + subtotal.toLocaleString();
+        }
+
+        function changeQuantity(index, change) {
+            let cart = getCart();
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart(cart);
+            renderCart();
+        }
+
+        function removeItem(index) {
+            let cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCart();
+        }
+
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            const cart = getCart();
+            if (cart.length === 0) { alert("Your cart is empty!"); return; }
+            alert("Proceeding to checkout! Thank you!");
+        });
+
+        // Initialize page
+        renderCart();
+    </script>
+</body>
+
+</html>
