@@ -18,7 +18,7 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- READ ONLY TEXT SCRIPT -->
+    <!-- READ ONLY TEXT & SOCIAL ICONS FIX -->
     <style>
         * {
             -webkit-user-select: none;
@@ -31,6 +31,26 @@
             -moz-user-select: text;
             -ms-user-select: text;
             user-select: text;
+        }
+
+        /* Forces social icons to be horizontal and centered */
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social a {
+            font-size: 24px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            color: #ccc;
+            transform: translateY(-3px);
         }
     </style>
 
@@ -47,7 +67,7 @@
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <a href="index.html">VINJ.</a>
+                <a href="index.html">VINJ</a> <!-- Removed period -->
             </div>
             <ul class="nav-links">
                 <li><a href="#">Men</a></li>
@@ -204,7 +224,7 @@
         <!-- Product 10 (Women's - Pleated Skirt) -->
         <div class="product">
             <div class="image">
-                <img src="images/skirt.jpg" alt="VINJ Pleated Skirt">
+                <img src="images/skirt.jpg.png" alt="VINJ Pleated Skirt">
                 <div class="overlay">
                     <button onclick="window.location.href='view-product.html?id=pleated-skirt'">View Product</button>
                 </div>
@@ -247,14 +267,16 @@
 
     <!-- FOOTER -->
     <footer>
-        <h2>VINJ.</h2>
+        <h2>VINJ</h2> <!-- Removed period -->
         <p>Premium Clothing Co.</p>
         <p>EST. 2026</p>
+        
         <div class="social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
         </div>
+
         <p class="copyright">
             © 2026 VINJ Clothing Co. All Rights Reserved.
         </p>
