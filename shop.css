@@ -153,6 +153,43 @@ body::before{
     HEADER
 ========================================*/
 
+/*
+    IMPORTANT:
+    The header has NO banner.jpg background.
+    This prevents the shop banner image from
+    appearing behind the navigation.
+*/
+
+header,
+.navbar,
+nav,
+.header{
+
+    background:#050505 !important;
+
+    background-image:none !important;
+
+    background-color:#050505 !important;
+
+}
+
+header::before,
+header::after,
+.navbar::before,
+.navbar::after,
+nav::before,
+nav::after,
+.header::before,
+.header::after{
+
+    background:none !important;
+
+    background-image:none !important;
+
+    content:none !important;
+
+}
+
 
 /*========================================
     SHOP BANNER
@@ -164,7 +201,9 @@ body::before{
 
     text-align:center;
 
-    /* ONLY SHOP + WOMEN BANNER BACKGROUND */
+    /*
+        ONLY SHOP + WOMEN BANNER BACKGROUND
+    */
 
     background:
     linear-gradient(
@@ -602,23 +641,4 @@ footer p{
 
     }
 
-}
-
-/*========================================
-    REMOVE BANNER IMAGE FROM HEADER
-    SHOP + WOMEN PAGES ONLY
-========================================*/
-
-header,
-header .navbar {
-    background-image: none !important;
-    background-color: #050505 !important;
-}
-
-header::before,
-header::after,
-header .navbar::before,
-header .navbar::after {
-    background-image: none !important;
-    content: none !important;
 }
