@@ -5,7 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VINJ - Product</title>
+    
+    <!-- READ ONLY TEXT SCRIPT -->
     <style>
+        /* Prevents users from highlighting and copying text on EVERY element */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allows text selection ONLY inside input boxes */
+        input, textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
         :root {
             --bg-color: #0a0a0a;
             --text-color: #ffffff;
@@ -204,7 +222,7 @@
 <body>
 
     <nav>
-        <a href="index.html" class="logo">VINJ</a>
+        <a href="index.html" class="logo">VINJ.</a>
         <a href="cart.html" class="cart-icon">Cart (<span id="cartCount">0</span>)</a>
     </nav>
 
@@ -243,7 +261,7 @@
     <!-- Include shared script -->
     <script src="script.js"></script>
     <script>
-        // 1. Database of your products (ADDED IMAGE PATHS)
+        // 1. Database of your products (ADDED PLEATED SKIRT)
         const products = {
             'signature-tee': { title: 'VINJ Signature Tee', price: '₱1,499', video: 'video/signature-tee.mp4', image: 'images/shirt.jpg', details: ['Premium heavyweight cotton', 'Regular fit', 'Minimalist VINJ logo print'] },
             'graphic-tee': { title: 'VINJ Graphic Tee', price: '₱1,799', video: 'video/graphic-tee.mp4', image: 'images/shirt.jpg', details: ['Heavyweight cotton construction', 'Oversized streetwear fit', 'Premium screen printed graphic'] },
@@ -253,7 +271,8 @@
             'cap': { title: 'VINJ Cap', price: '₱1,199', video: 'video/cap.mp4', image: 'images/cap.jpg', details: ['Premium twill fabric', 'Adjustable strap', 'Embroidered VINJ logo'] },
             'varsity-jacket': { title: 'VINJ Varsity Jacket', price: '₱2,800', video: 'video/varsity-jacket.mp4', image: 'images/jacket.jpg', details: ['Premium wool blend body', 'Snap button closure', 'Embroidered VINJ chest logo', 'Ribbed cuffs and hem'] },
             'cargo-pants': { title: 'VINJ Cargo Pants', price: '₱2,000', video: 'video/cargo-pants.mp4', image: 'images/product3.jpg', details: ['Heavyweight cotton twill', 'Multiple utility pockets', 'Relaxed streetwear fit', 'Reinforced stitching'] },
-            'street-shorts': { title: 'VINJ Street Shorts', price: '₱1,499', video: 'video/street-shorts.mp4', image: 'images/product4.jpg', details: ['Lightweight breathable fabric', 'Elastic waistband with drawstring', 'Modern streetwear length', 'Side pockets'] }
+            'street-shorts': { title: 'VINJ Street Shorts', price: '₱1,499', video: 'video/street-shorts.mp4', image: 'images/product4.jpg', details: ['Lightweight breathable fabric', 'Elastic waistband with drawstring', 'Modern streetwear length', 'Side pockets'] },
+            'pleated-skirt': { title: 'VINJ Pleated Skirt', price: '₱1,599', video: 'video/pleated-skirt.mp4', image: 'images/skirt.jpg', details: ['Premium heavyweight fabric', 'Knife pleat design', 'Mini length', 'Concealed side zipper', 'VINJ brand tag'] }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -277,7 +296,20 @@
             video.load();
             video.play().catch(error => console.log("Autoplay prevented."));
         } else {
+            // Fallback if no ID is found - ADDED DESCRIPTION HERE
             document.getElementById('productTitle').innerText = "Product Not Found";
+            document.getElementById('productPrice').innerText = "—";
+            
+            const detailsList = document.getElementById('productDetails');
+            detailsList.innerHTML = '';
+            
+            const li1 = document.createElement('li');
+            li1.innerText = "Sorry, we couldn't find the product you were looking for.";
+            detailsList.appendChild(li1);
+            
+            const li2 = document.createElement('li');
+            li2.innerText = "Please return to the shop to explore our latest collection.";
+            detailsList.appendChild(li2);
         }
 
         // Handle Size Selection
@@ -301,7 +333,7 @@
                 id: productId,
                 title: product.title,
                 price: product.price,
-                image: product.image, // <--- ADDED IMAGE PROPERTY HERE
+                image: product.image, 
                 size: selectedSize,
                 quantity: 1
             };
