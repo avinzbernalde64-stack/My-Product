@@ -8,285 +8,176 @@
 
 <title>VINJ | About</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- CSS (Added style.css first for the navbar) -->
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="about.css">
 <link rel="stylesheet" href="responsive.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- READ ONLY TEXT & SOCIAL ICONS FIX -->
+<style>
+    * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    input, textarea {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    /* Forces social icons to be horizontal and centered */
+    .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .social a {
+        font-size: 24px;
+        color: #fff;
+        transition: 0.3s;
+    }
+
+    .social a:hover {
+        color: #ccc;
+        transform: translateY(-3px);
+    }
+</style>
 
 </head>
 
 <body>
 
 <!-- SMOKE BACKGROUND -->
-
 <div class="smoke-bg">
-
 <span></span>
 <span></span>
 <span></span>
 <span></span>
-
 </div>
 
-<!-- HEADER -->
-
-<header class="header">
-
-<a href="index.html" class="logo">
-VINJ
-</a>
-
-<nav class="navbar">
-
-<a href="index.html">Home</a>
-
-<a href="shop.html">Shop</a>
-
-<a href="about.html" class="active">About</a>
-
-<a href="contact.html">Contact</a>
-
-</nav>
-
-<div class="icons">
-
-<a href="cart.html">
-
-<i class="fas fa-shopping-cart"></i>
-
-</a>
-
-</div>
-
+<!-- HEADER (Matches Home Page Exactly) -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">VINJ</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+    </nav>
 </header>
 
 <!-- HERO -->
-
 <section class="about-hero">
-
-<div class="hero-content">
-
-<h1>ABOUT VINJ</h1>
-
-<p>
-
-WEAR YOUR IDENTITY
-
-</p>
-
-</div>
-
+    <div class="hero-content">
+        <h1>ABOUT VINJ</h1>
+        <p>WEAR YOUR IDENTITY</p>
+    </div>
 </section>
 
 <!-- STORY -->
-
 <section class="about-section">
-
-<div class="about-image">
-
-<img src="images/about.jpg" alt="VINJ Story">
-
-</div>
-
-<div class="about-text">
-
-<span>OUR STORY</span>
-
-<h2>Modern Streetwear Built For Individuality</h2>
-
-<p>
-
-VINJ Clothing was founded with one purpose:
-to create premium streetwear that combines
-confidence, comfort, and timeless style.
-Every collection is designed for people who
-want to express themselves through fashion.
-
-</p>
-
-<p>
-
-More than clothing, VINJ represents
-individuality, creativity, and ambition.
-Every design reflects a minimalist aesthetic
-while maintaining premium quality and comfort.
-
-</p>
-
-</div>
-
+    <div class="about-image">
+        <img src="images/about.jpg" alt="VINJ Story">
+    </div>
+    <div class="about-text">
+        <span>OUR STORY</span>
+        <h2>Modern Streetwear Built For Individuality</h2>
+        <p>VINJ Clothing was founded with one purpose: to create premium streetwear that combines confidence, comfort, and timeless style. Every collection is designed for people who want to express themselves through fashion.</p>
+        <p>More than clothing, VINJ represents individuality, creativity, and ambition. Every design reflects a minimalist aesthetic while maintaining premium quality and comfort.</p>
+    </div>
 </section>
 
 <!-- MISSION -->
-
 <section class="mission">
-
-<div class="mission-box">
-
-<h2>OUR MISSION</h2>
-
-<p>
-
-To inspire confidence through premium-quality
-streetwear while delivering comfort,
-style, and originality in every collection.
-
-</p>
-
-</div>
-
+    <div class="mission-box">
+        <h2>OUR MISSION</h2>
+        <p>To inspire confidence through premium-quality streetwear while delivering comfort, style, and originality in every collection.</p>
+    </div>
 </section>
 
 <!-- VALUES -->
-
 <section class="values">
-
-<h2>OUR CORE VALUES</h2>
-
-<div class="value-grid">
-
-<div class="value-card">
-
-<i class="fas fa-star"></i>
-
-<h3>Quality</h3>
-
-<p>
-
-Every piece is made with premium materials
-and exceptional attention to detail.
-
-</p>
-
-</div>
-
-<div class="value-card">
-
-<i class="fas fa-fire"></i>
-
-<h3>Style</h3>
-
-<p>
-
-Modern minimalist streetwear inspired
-by creativity and confidence.
-
-</p>
-
-</div>
-
-<div class="value-card">
-
-<i class="fas fa-heart"></i>
-
-<h3>Passion</h3>
-
-<p>
-
-Designed with dedication,
-precision and purpose.
-
-</p>
-
-</div>
-
-<div class="value-card">
-
-<i class="fas fa-users"></i>
-
-<h3>Community</h3>
-
-<p>
-
-Building a brand where everyone
-can express their identity.
-
-</p>
-
-</div>
-
-</div>
-
+    <h2>OUR CORE VALUES</h2>
+    <div class="value-grid">
+        <div class="value-card">
+            <i class="fas fa-star"></i>
+            <h3>Quality</h3>
+            <p>Every piece is made with premium materials and exceptional attention to detail.</p>
+        </div>
+        <div class="value-card">
+            <i class="fas fa-fire"></i>
+            <h3>Style</h3>
+            <p>Modern minimalist streetwear inspired by creativity and confidence.</p>
+        </div>
+        <div class="value-card">
+            <i class="fas fa-heart"></i>
+            <h3>Passion</h3>
+            <p>Designed with dedication, precision and purpose.</p>
+        </div>
+        <div class="value-card">
+            <i class="fas fa-users"></i>
+            <h3>Community</h3>
+            <p>Building a brand where everyone can express their identity.</p>
+        </div>
+    </div>
 </section>
 
 <!-- FOUNDER -->
-
 <section class="founder">
-
-<h2>MEET THE FOUNDER</h2>
-
-<div class="founder-card">
-
-<div class="founder-image">
-
-<img src="images/founder.jpg"
-alt="Founder">
-
-</div>
-
-<div class="founder-info">
-
-<h3>Alexander Vincent</h3>
-
-<h4>Founder & Creative Director</h4>
-
-<p>
-
-VINJ began with a vision of creating
-streetwear that blends luxury,
-minimalism, and individuality.
-Every collection is designed to inspire
-confidence and help people wear
-their identity proudly.
-
-</p>
-
-<div class="social-links">
-
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-
-<a href="#"><i class="fab fa-instagram"></i></a>
-
-<a href="#"><i class="fab fa-tiktok"></i></a>
-
-</div>
-
-</div>
-
-</div>
-
+    <h2>MEET THE FOUNDER</h2>
+    <div class="founder-card">
+        <div class="founder-image">
+            <img src="images/founder.jpg" alt="Founder">
+        </div>
+        <div class="founder-info">
+            <h3>Alexander Vincent</h3>
+            <h4>Founder & Creative Director</h4>
+            <p>VINJ began with a vision of creating streetwear that blends luxury, minimalism, and individuality. Every collection is designed to inspire confidence and help people wear their identity proudly.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- FOOTER -->
-
 <footer>
+    <h2>VINJ</h2>
+    <p>Premium Clothing Co.</p>
+    <p>EST. 2026</p>
+    
+    <div class="social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
 
-<h2>VINJ</h2>
-
-<p>Premium Clothing Co.</p>
-
-<p>EST. 2026</p>
-
-<div class="social">
-
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-
-<a href="#"><i class="fab fa-instagram"></i></a>
-
-<a href="#"><i class="fab fa-tiktok"></i></a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 VINJ Clothing Co.
-All Rights Reserved.
-
-</p>
-
+    <p class="copyright">© 2026 VINJ Clothing Co. All Rights Reserved.</p>
 </footer>
 
 <script src="about.js"></script>
