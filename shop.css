@@ -96,26 +96,26 @@ body{
 
 @keyframes smokeMove{
 
-0%{
+    0%{
 
-transform:translate(0,0) scale(1);
-opacity:.15;
+        transform:translate(0,0) scale(1);
+        opacity:.15;
 
-}
+    }
 
-50%{
+    50%{
 
-transform:translate(80px,-60px) scale(1.35);
-opacity:.35;
+        transform:translate(80px,-60px) scale(1.35);
+        opacity:.35;
 
-}
+    }
 
-100%{
+    100%{
 
-transform:translate(-80px,80px) scale(1);
-opacity:.15;
+        transform:translate(-80px,80px) scale(1);
+        opacity:.15;
 
-}
+    }
 
 }
 
@@ -126,22 +126,25 @@ opacity:.15;
 
 body::before{
 
-content:"";
+    content:"";
 
-position:fixed;
+    position:fixed;
 
-inset:0;
+    inset:0;
 
-background-image:
-radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);
+    background-image:
+    radial-gradient(
+        rgba(255,255,255,.03) 1px,
+        transparent 1px
+    );
 
-background-size:5px 5px;
+    background-size:5px 5px;
 
-opacity:.25;
+    opacity:.25;
 
-pointer-events:none;
+    pointer-events:none;
 
-z-index:-1;
+    z-index:-1;
 
 }
 
@@ -157,40 +160,44 @@ z-index:-1;
 
 .shop-banner{
 
-padding:170px 20px 100px;
+    padding:170px 20px 100px;
 
-text-align:center;
+    text-align:center;
 
-/* ONLY SHOP + WOMEN BANNER BACKGROUND */
-background:
-linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
-url("images/banner.jpg") center center/cover no-repeat;
+    /* ONLY SHOP + WOMEN BANNER BACKGROUND */
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.75)
+    ),
+    url("images/banner.jpg") center center/cover no-repeat;
 
 }
 
 .shop-banner h1{
 
-font-size:70px;
+    font-size:70px;
 
-font-weight:800;
+    font-weight:800;
 
-letter-spacing:8px;
+    letter-spacing:8px;
 
-margin-bottom:18px;
+    margin-bottom:18px;
 
 }
 
 .shop-banner p{
 
-font-size:18px;
+    font-size:18px;
 
-color:#b8b8b8;
+    color:#b8b8b8;
 
-max-width:650px;
+    max-width:650px;
 
-margin:auto;
+    margin:auto;
 
-line-height:1.8;
+    line-height:1.8;
 
 }
 
@@ -201,20 +208,20 @@ line-height:1.8;
 
 .products{
 
-width:90%;
+    width:90%;
 
-max-width:1450px;
+    max-width:1450px;
 
-margin:auto;
+    margin:auto;
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
 
-gap:35px;
+    gap:35px;
 
-padding-bottom:100px;
+    padding-bottom:100px;
 
 }
 
@@ -245,12 +252,29 @@ padding-bottom:100px;
 
 }
 
-.product:nth-child(1){animation-delay:.1s;}
-.product:nth-child(2){animation-delay:.2s;}
-.product:nth-child(3){animation-delay:.3s;}
-.product:nth-child(4){animation-delay:.4s;}
-.product:nth-child(5){animation-delay:.5s;}
-.product:nth-child(6){animation-delay:.6s;}
+.product:nth-child(1){
+    animation-delay:.1s;
+}
+
+.product:nth-child(2){
+    animation-delay:.2s;
+}
+
+.product:nth-child(3){
+    animation-delay:.3s;
+}
+
+.product:nth-child(4){
+    animation-delay:.4s;
+}
+
+.product:nth-child(5){
+    animation-delay:.5s;
+}
+
+.product:nth-child(6){
+    animation-delay:.6s;
+}
 
 .product:hover{
 
