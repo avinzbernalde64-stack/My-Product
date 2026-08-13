@@ -88,6 +88,10 @@
             border-radius: 4px;
             overflow: hidden;
             background-color: #111;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #productVideo {
@@ -261,7 +265,7 @@
     <!-- Include shared script -->
     <script src="script.js"></script>
     <script>
-        // 1. Database of your products (ADDED PLEATED SKIRT)
+        // 1. Database of your products (ADDED HALTER TOP)
         const products = {
             'signature-tee': { title: 'VINJ Signature Tee', price: '₱1,499', video: 'video/signature-tee.mp4', image: 'images/shirt.jpg', details: ['Premium heavyweight cotton', 'Regular fit', 'Minimalist VINJ logo print'] },
             'graphic-tee': { title: 'VINJ Graphic Tee', price: '₱1,799', video: 'video/graphic-tee.mp4', image: 'images/shirt.jpg', details: ['Heavyweight cotton construction', 'Oversized streetwear fit', 'Premium screen printed graphic'] },
@@ -272,7 +276,8 @@
             'varsity-jacket': { title: 'VINJ Varsity Jacket', price: '₱2,800', video: 'video/varsity-jacket.mp4', image: 'images/jacket.jpg', details: ['Premium wool blend body', 'Snap button closure', 'Embroidered VINJ chest logo', 'Ribbed cuffs and hem'] },
             'cargo-pants': { title: 'VINJ Cargo Pants', price: '₱2,000', video: 'video/cargo-pants.mp4', image: 'images/product3.jpg', details: ['Heavyweight cotton twill', 'Multiple utility pockets', 'Relaxed streetwear fit', 'Reinforced stitching'] },
             'street-shorts': { title: 'VINJ Street Shorts', price: '₱1,499', video: 'video/street-shorts.mp4', image: 'images/product4.jpg', details: ['Lightweight breathable fabric', 'Elastic waistband with drawstring', 'Modern streetwear length', 'Side pockets'] },
-            'pleated-skirt': { title: 'VINJ Pleated Skirt', price: '₱1,599', video: 'video/pleated-skirt.mp4', image: 'images/skirt.jpg', details: ['Premium heavyweight fabric', 'Knife pleat design', 'Mini length', 'Concealed side zipper', 'VINJ brand tag'] }
+            'pleated-skirt': { title: 'VINJ Pleated Skirt', price: '₱1,599', video: 'video/pleated-skirt.mp4', image: 'images/skirt.jpg', details: ['Premium heavyweight fabric', 'Knife pleat design', 'Mini length', 'Concealed side zipper', 'VINJ brand tag'] },
+            'halter-top': { title: 'VINJ Halter Top', price: '₱1,299', video: 'video/halter-top.mp4', image: 'images/halter.jpg', details: ['Premium ribbed cotton blend', 'Sleeveless halter design', 'Form-fitting silhouette', 'VINJ branded tag', 'Perfect for layering'] }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -296,20 +301,30 @@
             video.load();
             video.play().catch(error => console.log("Autoplay prevented."));
         } else {
-            // Fallback if no ID is found - ADDED DESCRIPTION HERE
+            // DETAILED FALLBACK IF PRODUCT IS NOT FOUND
             document.getElementById('productTitle').innerText = "Product Not Found";
             document.getElementById('productPrice').innerText = "—";
+            document.querySelector('.product-subtitle').innerText = "ERROR 404";
             
             const detailsList = document.getElementById('productDetails');
             detailsList.innerHTML = '';
             
             const li1 = document.createElement('li');
-            li1.innerText = "Sorry, we couldn't find the product you were looking for.";
+            li1.innerText = "We couldn't find the product you were looking for.";
             detailsList.appendChild(li1);
             
             const li2 = document.createElement('li');
-            li2.innerText = "Please return to the shop to explore our latest collection.";
+            li2.innerText = "It may have been moved, deleted, or the link is incorrect.";
             detailsList.appendChild(li2);
+            
+            const li3 = document.createElement('li');
+            li3.innerText = "Please return to the shop to explore our latest premium streetwear collection.";
+            detailsList.appendChild(li3);
+            
+            // Change button to redirect back to shop
+            const actionBtn = document.getElementById('addToCartBtn');
+            actionBtn.innerText = "Return to Shop";
+            actionBtn.onclick = () => { window.location.href = 'shop.html'; };
         }
 
         // Handle Size Selection
@@ -323,40 +338,40 @@
 
         // Add to Cart Logic
         const addToCartBtn = document.getElementById('addToCartBtn');
-        addToCartBtn.addEventListener('click', () => {
-            if (!product) return;
+        if (product) {
+            addToCartBtn.addEventListener('click', () => {
+                const activeSizeBtn = document.querySelector('.size-btn.active');
+                const selectedSize = activeSizeBtn ? activeSizeBtn.innerText : 'M';
 
-            const activeSizeBtn = document.querySelector('.size-btn.active');
-            const selectedSize = activeSizeBtn ? activeSizeBtn.innerText : 'M';
+                const cartItem = {
+                    id: productId,
+                    title: product.title,
+                    price: product.price,
+                    image: product.image, 
+                    size: selectedSize,
+                    quantity: 1
+                };
 
-            const cartItem = {
-                id: productId,
-                title: product.title,
-                price: product.price,
-                image: product.image, 
-                size: selectedSize,
-                quantity: 1
-            };
+                let cart = getCart();
+                const existingItemIndex = cart.findIndex(item => item.id === cartItem.id && item.size === cartItem.size);
 
-            let cart = getCart();
-            const existingItemIndex = cart.findIndex(item => item.id === cartItem.id && item.size === cartItem.size);
+                if (existingItemIndex !== -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push(cartItem);
+                }
 
-            if (existingItemIndex !== -1) {
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                cart.push(cartItem);
-            }
+                saveCart(cart);
 
-            saveCart(cart);
+                addToCartBtn.innerText = "Added to Cart!";
+                addToCartBtn.classList.add('added');
 
-            addToCartBtn.innerText = "Added to Cart!";
-            addToCartBtn.classList.add('added');
-
-            setTimeout(() => {
-                addToCartBtn.innerText = "Add to Cart";
-                addToCartBtn.classList.remove('added');
-            }, 1500);
-        });
+                setTimeout(() => {
+                    addToCartBtn.innerText = "Add to Cart";
+                    addToCartBtn.classList.remove('added');
+                }, 1500);
+            });
+        }
     </script>
 </body>
 
