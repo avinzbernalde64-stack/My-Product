@@ -8,25 +8,24 @@
 
     <title>VINJ | Shop</title>
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="responsive.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- READ ONLY TEXT SCRIPT -->
     <style>
-        /* Prevents users from highlighting and copying text on EVERY element */
         * {
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Standard syntax */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
-
-        /* Allows text selection ONLY inside input boxes (like search or email) */
         input, textarea {
             -webkit-user-select: text;
             -moz-user-select: text;
@@ -40,55 +39,40 @@
 <body>
 
     <!-- Smoke Background -->
-
     <div class="smoke-bg">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span><span></span>
     </div>
 
     <!-- HEADER -->
-
     <header class="header">
-
-        <a href="index.html" class="logo">
-            VINJ
-        </a>
-
         <nav class="navbar">
-
-            <a href="index.html">Home</a>
-            <a href="shop.html" class="active">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-
+            <div class="logo">
+                <a href="index.html">VINJ.</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Men</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+            </ul>
+            <div class="icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-heart"></i>
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
         </nav>
-
-        <div class="icons">
-
-            <a href="cart.html">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-
-        </div>
-
     </header>
 
     <!-- HERO -->
-
     <section class="shop-banner">
-
         <h1>SHOP THE COLLECTION</h1>
-
-        <p>
-            Premium streetwear inspired by modern minimalism.
-        </p>
-
+        <p>Premium streetwear inspired by modern minimalism.</p>
     </section>
 
     <!-- PRODUCTS -->
-
     <section class="products">
 
         <!-- Product 1 -->
@@ -96,9 +80,7 @@
             <div class="image">
                 <img src="images/front-shirt.png" alt="VINJ Signature Tee">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=signature-tee'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=signature-tee'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -112,9 +94,7 @@
             <div class="image">
                 <img src="images/Graph-shirt.png" alt="VINJ Graphic Tee">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=graphic-tee'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=graphic-tee'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -128,9 +108,7 @@
             <div class="image">
                 <img src="images/hoodie.png" alt="VINJ Hoodie">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=hoodie'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=hoodie'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -144,9 +122,7 @@
             <div class="image">
                 <img src="images/front-shirt2.png" alt="VINJ Essential Tee">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=essential-tee'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=essential-tee'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -160,9 +136,7 @@
             <div class="image">
                 <img src="images/oversized.png" alt="VINJ Oversized Tee">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=oversized-tee'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=oversized-tee'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -176,9 +150,7 @@
             <div class="image">
                 <img src="images/cap.png" alt="VINJ Cap">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=cap'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=cap'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -192,9 +164,7 @@
             <div class="image">
                 <img src="images/jacket.jpg" alt="VINJ Varsity Jacket">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=varsity-jacket'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=varsity-jacket'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -208,9 +178,7 @@
             <div class="image">
                 <img src="images/product3.jpg" alt="VINJ Cargo Pants">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=cargo-pants'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=cargo-pants'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -224,9 +192,7 @@
             <div class="image">
                 <img src="images/product4.jpg" alt="VINJ Street Shorts">
                 <div class="overlay">
-                    <button onclick="window.location.href='view-product.html?id=street-shorts'">
-                        View Product
-                    </button>
+                    <button onclick="window.location.href='view-product.html?id=street-shorts'">View Product</button>
                 </div>
             </div>
             <div class="product-info">
@@ -235,33 +201,63 @@
             </div>
         </div>
 
+        <!-- Product 10 (Women's - Pleated Skirt) -->
+        <div class="product">
+            <div class="image">
+                <img src="images/skirt.jpg" alt="VINJ Pleated Skirt">
+                <div class="overlay">
+                    <button onclick="window.location.href='view-product.html?id=pleated-skirt'">View Product</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>VINJ Pleated Skirt</h2>
+                <p class="price">₱1,599</p>
+            </div>
+        </div>
+
+        <!-- Product 11 (Women's - Halter Top) -->
+        <div class="product">
+            <div class="image">
+                <img src="images/halter.png" alt="VINJ Halter Top">
+                <div class="overlay">
+                    <button onclick="window.location.href='view-product.html?id=halter-top'">View Product</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>VINJ Halter Top</h2>
+                <p class="price">₱1,299</p>
+            </div>
+        </div>
+
+        <!-- Product 12 (Women's - Long Sleeve Crop Top) -->
+        <div class="product">
+            <div class="image">
+                <img src="images/longsleeve.png" alt="VINJ Long Sleeve Crop Top">
+                <div class="overlay">
+                    <button onclick="window.location.href='view-product.html?id=long-sleeve-crop'">View Product</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>VINJ Long Sleeve Crop Top</h2>
+                <p class="price">₱1,499</p>
+            </div>
+        </div>
+
     </section>
 
     <!-- FOOTER -->
-
     <footer>
-
-        <h2>VINJ</h2>
-
+        <h2>VINJ.</h2>
         <p>Premium Clothing Co.</p>
-
         <p>EST. 2026</p>
-
         <div class="social">
-
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
-
         </div>
-
         <p class="copyright">
-
-            © 2026 VINJ Clothing Co.
-            All Rights Reserved.
-
+            © 2026 VINJ Clothing Co. All Rights Reserved.
         </p>
-
     </footer>
 
     <script src="product.js"></script>
