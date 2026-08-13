@@ -934,4 +934,73 @@ body {
     transform: translateY(-5px);
     
     background: #e8e8e8;
-    
+
+
+   /* =========================================
+   VINJ HEADER LOGO
+   ========================================= */
+
+header {
+    background: #000;
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+}
+
+/* VINJ LOGO */
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+
+    letter-spacing: 6px;
+    line-height: 1;
+
+    display: block;
+    white-space: nowrap;
+}
+
+/* Keep navigation on the left */
+.nav-links {
+    margin-left: 0;
+}
+
+/* Keep icons on the right */
+.icons {
+    margin-left: auto;
+}
+
+/* =========================================
+   MOBILE HEADER
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 85px;
+    }
+
+    .logo a {
+        font-size: 34px;
+        letter-spacing: 5px;
+    }
+
+}
