@@ -35,6 +35,7 @@ section {
     width: 100%;
 }
 
+
 /* ==========================================
    HEADER
 ========================================== */
@@ -46,9 +47,15 @@ header {
     width: 100%;
     z-index: 1000;
 
-    /* SOLID BLACK HEADER */
-    background: #000;
+    /* BANNER IMAGE */
+    background-image: url("images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* REMOVE BLUR */
     backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 
     transition: .35s;
 }
@@ -63,14 +70,28 @@ header {
     align-items: center;
 
     padding: 0 60px;
+
+    /* Keep the banner visible */
+    background: transparent;
 }
 
+
+/* ==========================================
+   VINJ LOGO
+========================================== */
+
 .logo a {
-    color: white;
+    color: #fff;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 6px;
+    text-decoration: none;
 }
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
 
 .nav-links {
     list-style: none;
@@ -79,7 +100,7 @@ header {
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
     font-size: 15px;
     transition: .3s;
 }
@@ -87,6 +108,11 @@ header {
 .nav-links a:hover {
     color: #cfcfcf;
 }
+
+
+/* ==========================================
+   HEADER ICONS
+========================================== */
 
 .icons {
     display: flex;
@@ -102,6 +128,7 @@ header {
 .icons i:hover {
     color: #d6d6d6;
 }
+
 
 /* ==========================================
    HERO
@@ -172,6 +199,11 @@ header {
     gap: 20px;
 }
 
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -211,6 +243,7 @@ header {
     color: #000;
 }
 
+
 /* ==========================================
    SECTION TITLES
 ========================================== */
@@ -242,6 +275,7 @@ header {
     margin: auto;
 }
 
+
 /* ==========================================
    FEATURED & BEST SELLERS
 ========================================== */
@@ -257,6 +291,7 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 35px;
 }
+
 
 /* ==========================================
    PRODUCT CARD
@@ -319,6 +354,7 @@ header {
     border-color: #fff;
 }
 
+
 /* ==========================================
    PREMIUM BANNER
 ========================================== */
@@ -354,6 +390,7 @@ header {
     line-height: 1.9;
     font-size: 18px;
 }
+
 
 /* ==========================================
    NEWSLETTER
@@ -411,6 +448,7 @@ header {
     background: #d8d8d8;
 }
 
+
 /* ==========================================
    FOOTER
 ========================================== */
@@ -466,6 +504,7 @@ footer i {
     font-size: 14px;
 }
 
+
 /* ==========================================
    SCROLL TO TOP
 ========================================== */
@@ -497,6 +536,7 @@ footer i {
     transform: translateY(-5px);
 }
 
+
 /* ==========================================
    FADE ANIMATION
 ========================================== */
@@ -512,11 +552,22 @@ footer i {
     transform: translateY(0);
 }
 
+
+/* ==========================================
+   LOADING EFFECT
+========================================== */
+
+body {
+    opacity: 1;
+    transition: none;
+}
+
+
 /* ==========================================
    RESPONSIVE
 ========================================== */
 
-@media(max-width:992px) {
+@media(max-width: 992px) {
 
     .nav-links {
         display: none;
@@ -546,7 +597,8 @@ footer i {
     }
 }
 
-@media(max-width:768px) {
+
+@media(max-width: 768px) {
 
     .hero {
         height: 90vh;
@@ -588,17 +640,9 @@ footer i {
     }
 }
 
-/* ==========================================
-   LOADING EFFECT
-========================================== */
-
-body {
-    opacity: 1;
-    transition: none;
-}
 
 /* ==========================================
-   TOP BUTTON
+   TOP BUTTON FINAL
 ========================================== */
 
 .top-btn {
