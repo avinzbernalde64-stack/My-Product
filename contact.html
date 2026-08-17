@@ -270,10 +270,16 @@ Contact
 
             <form id="contactForm">
 
+                <!-- Web3Forms Hidden Inputs -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Contact Form Submission - VINJ Clothing">
+                <input type="hidden" name="from_name" value="VINJ Website">
+
                 <div class="input-group">
 
                     <input
                         type="text"
+                        name="name"
                         placeholder="Full Name"
                         required>
 
@@ -283,6 +289,7 @@ Contact
 
                     <input
                         type="email"
+                        name="email"
                         placeholder="Email Address"
                         required>
 
@@ -292,6 +299,7 @@ Contact
 
                     <input
                         type="text"
+                        name="user_subject"
                         placeholder="Subject"
                         required>
 
@@ -300,6 +308,7 @@ Contact
                 <div class="input-group">
 
                     <textarea
+                        name="message"
                         placeholder="Write your message..."
                         required></textarea>
 
